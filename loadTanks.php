@@ -7,7 +7,7 @@ $result = $conn->query($sql);
 
 echo $result;
 
-if ($result->num_rows > 0) {
+if ($result->num_rows > 0 || true) {
     // Output data of each row
     $tanks = array();
     while($row = $result->fetch_assoc()) {
