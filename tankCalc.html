@@ -9,38 +9,6 @@
   <link rel="stylesheet" href="css/style.css" />
   <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
   <script src="js/calcTank.js" defer></script>
-  <script>
-    $(document).ready(function () {
-      // Function to load tanks
-      function loadTanks() {
-        $.ajax({
-          url: 'loadTanks.php', // PHP script to fetch data from database
-          type: 'GET',
-          dataType: 'json',
-          success: function (data) {
-            // Clear existing tanks
-            $('#tanks').empty();
-            // Append new tanks
-            data.forEach(function (tank) {
-              $('#tanks').append('<div>Fill Date: ' + tank.fillDate + ' - Cost: $' + tank.cost + '</div>');
-            });
-          },
-          error: function (xhr, status, error) {
-            console.error('Error loading tanks: ' + error);
-          }
-        });
-      }
-
-      // Load tanks on page load
-      loadTanks();
-
-      // Load tanks when "Load all tanks" button is clicked
-      $('#tankForm').submit(function (e) {
-        e.preventDefault(); // Prevent form submission
-        loadTanks(); // Load tanks
-      });
-    });
-  </script>
 </head>
 
 <body>
@@ -61,6 +29,37 @@
     <div id="calculatedTank">Calculated data:</div>
   </main>
   <footer></footer>
+  <script>
+    document.addEventListener("DOMContentLoaded", (e) => {
+      e.preventDefault();
+      // Create a new XMLHttpRequest object
+      var xhr = new XMLHttpRequest();
+
+      // Configure it: GET-request for the URL
+      xhr.open('GET', 'loadTanks.php');
+
+      // Set up a function that will be called when the request status changes
+      xhr.onreadystatechange = function () {
+        // When the request is completed successfully
+        if (xhr.readyState === XMLHttpRequest.DONE) {
+          // Check if the request was successful (status 200)
+          if (xhr.status === 200) {
+            // Parse the JSON response
+            var tanks = JSON.parse(xhr.responseText);
+            // Do something with the tanks data
+            console.log(tanks);
+          } else {
+            // Handle the error
+            console.error('Request failed with status:', xhr.status);
+          }
+        }
+      };
+
+      // Send the request
+      xhr.send();
+
+    });
+  </script>
 </body>
 
 </html>
