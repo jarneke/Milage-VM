@@ -1,19 +1,33 @@
 <?php
 include 'config.php';
 
+// Check if the connection was successful
+if ($conn->connect_error) {
+    die("Connection failed: " . $conn->connect_error);
+}
+
 $sql = "SELECT * FROM tanks";
 
-$result = $conn->query($sql);
+try {
+    $result = $conn->query($sql);
 
-if ($result->num_rows > 0 || true) {
-    // Output data of each row
-    $tanks = array();
-    while($row = $result->fetch_assoc()) {
-        $tanks[] = $row;
+    if ($result === false) {
+        throw new Exception("Error executing the query: " . $conn->error);
     }
-    echo json_encode($tanks);
-} else {
-    echo "0 results";
+
+    if ($result->num_rows > 0) {
+        // Output data of each row
+        $tanks = array();
+        while($row = $result->fetch_assoc()) {
+            $tanks[] = $row;
+        }
+        echo json_encode($tanks);
+    } else {
+        echo "0 results";
+    }
+} catch (Exception $e) {
+    echo "Error: " . $e->getMessage();
 }
+
 $conn->close();
 ?>
