@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="nl-BE">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>index</title>
+    <link rel="stylesheet" href="css/reset.css" />
+    <link rel="stylesheet" href="css/style.css" />
+</head>
+
+<body>
+    <header>
+        <nav>
+            <a href="index.html">Home</a>
+            <a href="data.html">Data</a>
+            <a href="tankCalc.html">Calculate refills</a>
+        </nav>
+    </header>
+    <main>
+        <h1>Milage</h1>
+        <form id="tripForm">
+            <fieldset>
+                <legend>New trip:</legend>
+                <label for="user">User</label>
+                <input type="text" name="user" id="user" required />
+                <label for="date">Date: (leave empty for current date)</label>
+                <input type="datetime-local" name="tripDate" id="tripDate" required />
+                <label for="sm">Start milage</label>
+                <input type="number" name="sm" id="sm" required />
+                <label for="em">End milage</label>
+                <input type="number" name="em" id="em" required />
+                <input type="submit" value="submit trip" />
+            </fieldset>
+        </form>
+        <form id="tankForm">
+            <fieldset>
+                <legend>new refill:</legend>
+                <label for="filldate">Date: </label>
+                <input type="datetime-local" name="fillDate" id="fillDate" required />
+                <label for="cost">Price of refill: </label>
+                <input type="number" name="cost" id="cost" required />
+                <input type="submit" value="submit tank" />
+            </fieldset>
+        </form>
+    </main>
+    <footer></footer>
+    <script>
+        document.getElementById('tripForm').addEventListener('submit', function (event) {
+            event.preventDefault(); // Prevent form submission
+            submitTrip(); // Call the function to handle form submission
+        });
+
+        function submitTrip() {
+            let xhttp = new XMLHttpRequest();
+            xhttp.onreadystatechange = function () {
+                if (this.readyState == 4 && this.status == 200) {
+                    console.log(this.responseText); // Log the response
+                }
+            };
+
+            // Prepare the data to send
+            let formData = new FormData(document.getElementById('tripForm'));
+
+            // Send the POST request
+            xhttp.open("POST", "addTrip.php", true);
+            xhttp.send(formData);
+        }
+
+        // Function to handle tank form submission
+        document.getElementById('tankForm').addEventListener('submit', function (event) {
+            event.preventDefault(); // Prevent form submission
+            submitTank(); // Call the function to handle form submission
+        });
+
+        function submitTank() {
+            let xhttp = new XMLHttpRequest();
+            xhttp.onreadystatechange = function () {
+                if (this.readyState == 4 && this.status == 200) {
+                    console.log(this.responseText); // Log the response
+                }
+            };
+
+            // Prepare the data to send
+            let formData = new FormData(document.getElementById('tankForm'));
+
+            // Send the POST request
+            xhttp.open("POST", "addTank.php", true);
+            xhttp.send(formData);
+        }
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,57 @@
+:root {
+  --col-main: rgb(22, 158, 221);
+}
+html {
+  font-family: Arial, Helvetica, sans-serif;
+}
+header,
+footer {
+  background-color: var(--col-main);
+  height: 10vh;
+}
+main {
+  margin: 2rem 1rem;
+}
+fieldset {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+h1 {
+  font-size: 2rem;
+  margin-bottom: 1rem;
+}
+.table {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  justify-content: space-between;
+}
+.table div {
+  display: flex;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+.table div div {
+  width: 45%;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  background-color: var(--col-main);
+  padding: 0.5rem;
+  color: #fff;
+}
+#calculatedTank {
+  background-color: #7e7e7e;
+  color: #fff;
+  padding: 1rem;
+}
+#calculatedTank div {
+  background-color: #c5c5c5;
+  padding: 0.5rem;
+}
+#calculatedTank div p {
+  background-color: #7e7e7e;
+  padding: 0.5rem;
+}
