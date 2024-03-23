@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Document</title>
+  <link rel="stylesheet" href="css/reset.css" />
+  <link rel="stylesheet" href="css/style.css" />
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <script src="js/calcTank.js" defer></script>
+  <script>
+    $(document).ready(function () {
+      // Function to load tanks
+      function loadTanks() {
+        $.ajax({
+          url: 'loadTanks.php', // PHP script to fetch data from database
+          type: 'GET',
+          dataType: 'json',
+          success: function (data) {
+            // Clear existing tanks
+            $('#tanks').empty();
+            // Append new tanks
+            data.forEach(function (tank) {
+              $('#tanks').append('<div>' + tank.name + ' - Capacity: ' + tank.capacity + '</div>');
+            });
+          },
+          error: function (xhr, status, error) {
+            console.error('Error loading tanks: ' + error);
+          }
+        });
+      }
+
+      // Load tanks on page load
+      loadTanks();
+
+      // Load tanks when "Load all tanks" button is clicked
+      $('#tankForm').submit(function (e) {
+        e.preventDefault(); // Prevent form submission
+        loadTanks(); // Load tanks
+      });
+    });
+  </script>
+</head>
+
+<body>
+  <header>
+    <nav>
+      <a href="index.html">Home</a>
+      <a href="data.html">Data</a>
+      <a href="tankCalc.html">Calculate refills</a>
+    </nav>
+  </header>
+  <main>
+    <form id="tankForm">
+      <input type="submit" value="Load all tanks" />
+    </form>
+    <div class="table">
+      <div id="tanks"></div>
+    </div>
+    <div id="calculatedTank">Calculated data:</div>
+  </main>
+  <footer></footer>
+</body>
+
+</html>
