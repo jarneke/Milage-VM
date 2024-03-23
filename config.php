@@ -5,6 +5,8 @@ $databaseUsername = 'root';
 $databasePassword = 'root';
 $databaseName = 'milage';
 
+echo "test :)";
+
 // Connect to the database
 $mysqli = mysqli_connect($databaseHost, $databaseUsername, $databasePassword, $databaseName);
 
