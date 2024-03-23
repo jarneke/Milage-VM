@@ -5,8 +5,6 @@ $databaseUsername = 'root';
 $databasePassword = 'root';
 $databaseName = 'milage';
 
-echo "test :)";
-
 // Connect to the database
 $mysqli = mysqli_connect($databaseHost, $databaseUsername, $databasePassword, $databaseName);
 
@@ -15,6 +13,6 @@ if (!$mysqli) {
     die("Connection failed: " . mysqli_connect_error());
 } else {
     // Echo the success message
-    echo "Connection successful!";
+    echo "Connection successful!\n";
 }
 ?>
