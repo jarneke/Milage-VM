@@ -22,7 +22,7 @@
             $('#tanks').empty();
             // Append new tanks
             data.forEach(function (tank) {
-              $('#tanks').append('<div>' + tank.name + ' - Capacity: ' + tank.capacity + '</div>');
+              $('#tanks').append('<div>Fill Date: ' + tank.fillDate + ' - Cost: $' + tank.cost + '</div>');
             });
           },
           error: function (xhr, status, error) {
