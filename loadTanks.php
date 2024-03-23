@@ -5,6 +5,8 @@ $sql = "SELECT * FROM tanks";
 
 $result = $conn->query($sql);
 
+echo $result
+
 if ($result->num_rows > 0) {
     // Output data of each row
     $tanks = array();
