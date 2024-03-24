@@ -1,6 +1,7 @@
 setTimeout = (() => {
     const calculateButtons = document.getElementsByClassName('CalculateTank');
     console.log(calculateButtons);
+    console.log("1");
     for (const button of calculateButtons) {
         button.addEventListener('click', () => {
             const tankDiv = button.closest('.tank');
