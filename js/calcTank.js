@@ -106,6 +106,7 @@ setTimeout(() => {
                                 const em = document.createElement("p");
 
                                 subSubContainer.classList.add("bg-secondary", "p-2", "rounded")
+                                subSubContainer.style.display = "none"
                                 tripDate.textContent = "datum: " + trip.date;
                                 sm.textContent = "Start: " + trip.sm;
                                 em.textContent = "Eind: " + trip.em;
