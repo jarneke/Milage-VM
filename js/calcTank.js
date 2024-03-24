@@ -77,7 +77,7 @@ setTimeout(() => {
 
                             tripsButton.textContent = "Show trips"
                             tripsButton.classList.add("btn", "btn-dark")
-                            tripsButton.setAttribute("data-trips", false)
+                            tripsButton.setAttribute("data-trips", true)
                             tripsButton.addEventListener("click", e => {
                                 e.preventDefault();
                                 console.log(tripsButton.getAttribute("data-trips"));
