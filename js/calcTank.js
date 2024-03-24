@@ -9,7 +9,8 @@ setTimeout(() => {
             const tankDiv = button.closest('.tank');
             if (tankDiv) {
                 const firstElementTextContent = tankDiv.firstElementChild.textContent;
-                console.log(firstElementTextContent);
+                const clickedFillDate = firstElementTextContent.split(" ")[1];
+                console.log(clickedFillDate);
             }
         });
     }
