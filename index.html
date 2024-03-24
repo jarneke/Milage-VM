@@ -60,7 +60,7 @@
 
             // Prepare the data to send
             let formData = new FormData(document.getElementById('tripForm'));
-
+            console.log(formData);
             // Send the POST request
             xhttp.open("POST", "addTrip.php", true);
             xhttp.send(formData);
