@@ -70,7 +70,7 @@ setTimeout(() => {
                             subContainer.classList.add("bg-dark", "p-2", "d-flex", "flex-column", "col-12", "rounded")
                             userP.textContent = person.user;
                             totalDrivenP.textContent = "totaal gereden: " + person.total;
-                            totalCostP.textContent = "Te betalen: " + person.costForTank;
+                            totalCostP.textContent = "Te betalen: €" + person.costForTank;
 
                             subContainer.appendChild(userP);
 
