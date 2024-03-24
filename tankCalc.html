@@ -42,6 +42,8 @@
     // Call the function when the page loads
     window.onload = function () {
       getTankData();
+      const tanks = document.getElementById("tanks")
+      tanks.firstElementChild.removeChild(tanks.firstElementChild.childNodes[2]);
     };
   </script>
 </body>
