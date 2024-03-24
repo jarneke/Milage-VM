@@ -1,3 +1,4 @@
+console.log("TEST");
 const calculateButtons = document.getElementsByClassName('CalculateTank');
 let i = 0;
 for (const button of calculateButtons) {
