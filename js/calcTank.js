@@ -6,10 +6,8 @@ setTimeout(() => {
             if (tankDiv) {
                 const previousFillDate = document.querySelector(`.tank[data-id="${tankDiv.getAttribute("data-id") - 1}"]`).firstElementChild.textContent.split(" ")[2];
                 const clickedFillDate = tankDiv.firstElementChild.textContent.split(" ")[2];
-                const clickedFillPrice = parseFloat(tankDiv.childNodes[1].textContent.split("€")[1]);
-                console.log(clickedFillPrice);
-                console.log("clicked Date: " + clickedFillDate);
-                console.log("previous Date: " + previousFillDate);
+                const fillPrice = parseFloat(tankDiv.childNodes[1].textContent.split("€")[1]);
+                console.log(fillPrice);
                 let xhttp = new XMLHttpRequest();
                 xhttp.onreadystatechange = function () {
                     if (this.readyState == 4 && this.status == 200) {
@@ -24,6 +22,30 @@ setTimeout(() => {
                             totalDriven += (trip.em - trip.sm);
                         }
                         console.log(totalDriven);
+                        let drivenPerPerson = []
+                        for (const trip of tripsData) {
+                            if (drivenPerPerson.find(e => e.user == trip.user) === undefined) {
+                                drivenPerPerson.push({
+                                    user: trip.user,
+                                    trips: [],
+                                    total: 0,
+                                    costForTank: 0
+                                })
+                            }
+                        }
+                        for (const trip of tripsData) {
+                            for (const person of drivenPerPerson) {
+                                if (person.user === trip.user) {
+                                    person.trips.push({
+                                        date: trip.tripDate,
+                                        sm: trip.sm,
+                                        em: trip.em
+                                    });
+                                    person.total += trip.em - trip.sm;
+                                }
+                            }
+                        }
+                        console.log(drivenPerPerson);
                     }
                 };
                 // Send AJAX request to LoadTripsBetween.php
