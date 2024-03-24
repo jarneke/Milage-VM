@@ -1,6 +1,6 @@
-const calculateButtons = document.querySelectorAll('.CalculateTank');
+const calculateButtons = document.getElementsByClassName('CalculateTank');
 
-calculateButtons.forEach(button => {
+for (const button of calculateButtons) {
     button.addEventListener('click', () => {
         const tankDiv = button.closest('.tank');
         if (tankDiv) {
@@ -8,4 +8,4 @@ calculateButtons.forEach(button => {
             console.log(firstElementTextContent);
         }
     });
-});
+}
