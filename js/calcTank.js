@@ -1,5 +1,7 @@
 console.log("TEST");
-const calculateButtons = document.getElementsByClassName('CalculateTank');
+setTimeout(() => {
+    const calculateButtons = document.getElementsByClassName('CalculateTank');
+}, 1000);
 let i = 0;
 for (const button of calculateButtons) {
     console.log(`button ${i} trying to add listener`);
