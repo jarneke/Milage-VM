@@ -6,6 +6,7 @@ setTimeout(() => {
             if (tankDiv) {
                 const previousFillDate = document.querySelector(`.tank[data-id="${tankDiv.getAttribute("data-id") - 1}"]`).firstElementChild.textContent.split(" ")[2];
                 const clickedFillDate = tankDiv.firstElementChild.textContent.split(" ")[2];
+                const clickedFillPrice = 0;
                 console.log("clicked Date: " + clickedFillDate);
                 console.log("previous Date: " + previousFillDate);
                 let xhttp = new XMLHttpRequest();
@@ -17,6 +18,8 @@ setTimeout(() => {
                         document.getElementById("calcTank").innerHTML = "";
 
                         console.log(tripsData);
+
+
                     }
                 };
                 // Send AJAX request to LoadTripsBetween.php
