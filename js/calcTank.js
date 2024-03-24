@@ -64,6 +64,7 @@ setTimeout(() => {
                         for (const person of drivenPerPerson) {
                             const subContainer = document.createElement("div");
                             const userP = document.createElement("p");
+                            const tripsContainer = document.createElement("div");
                             const totalDrivenP = document.createElement("p");
                             const totalCostP = document.createElement("p");
 
@@ -73,7 +74,7 @@ setTimeout(() => {
                             totalCostP.textContent = "Te betalen: €" + person.costForTank;
 
                             subContainer.appendChild(userP);
-
+                            subContainer.appendChild(tripsContainer);
                             for (const trip of person.trips) {
                                 const subSubContainer = document.createElement("div");
                                 const tripDate = document.createElement("p");
@@ -89,7 +90,7 @@ setTimeout(() => {
                                 subSubContainer.appendChild(sm);
                                 subSubContainer.appendChild(em);
 
-                                subContainer.appendChild(subSubContainer);
+                                tripsContainer.appendChild(subSubContainer);
                             }
                             subContainer.appendChild(totalDrivenP);
                             subContainer.appendChild(totalCostP);
