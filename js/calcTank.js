@@ -86,14 +86,14 @@ setTimeout(() => {
                                         child.style.display = "block"
                                     }
                                     tripsButton.style.display = "block"
-                                    tripsButton.setAttribute("data-trips", true)
+                                    tripsButton.setAttribute("data-trips", false)
                                     tripsButton.textContent = "Hide trips"
                                 } else {
                                     for (const child of tripsContainer.childNodes) {
                                         child.style.display = "none"
                                     }
                                     tripsButton.style.display = "block"
-                                    tripsButton.setAttribute("data-trips", false)
+                                    tripsButton.setAttribute("data-trips", true)
                                     tripsButton.textContent = "Show trips"
                                 }
                             })
