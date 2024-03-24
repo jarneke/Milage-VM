@@ -14,12 +14,11 @@ if ($result->num_rows > 0) {
     // Output data of each row
     $i = 0;
     while($row = $result->fetch_assoc()) {
-        echo "<div class='tank' data-id='" . $i . "'>";
-        echo "<p>Tank Date: " . $row["fillDate"] . "</p>";
-        echo "<p>Cost: $" . $row["cost"] . "</p>";
-        echo '<button type="button" class="CalculateTank">Calculate tank</button>';
-        echo "</div>";
-        $i++;
+        echo "<div class='trip'>";
+        echo "<p>User: " . $row[user] . "</p>";
+        echo "<p>tripDate: " . $row[tripDate] . "</p>";
+        echo "<p>sm: " . $row[sm] . "</p>";
+        echo "<p>em: " . $row[em] . "</p>";
     }
 } else {
     echo "0 results";
