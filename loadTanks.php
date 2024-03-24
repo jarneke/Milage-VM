@@ -4,7 +4,7 @@ include 'config.php';
 
 // Query to fetch all data from tanks table
 $sql = "SELECT * FROM tanks";
-$result = $conn->query($sql);
+$result = $mysqli->query($sql); // Use $mysqli instead of $conn
 
 if ($result->num_rows > 0) {
     // Output data of each row
@@ -17,5 +17,5 @@ if ($result->num_rows > 0) {
 } else {
     echo "0 results";
 }
-$conn->close();
+$mysqli->close(); // Use $mysqli instead of $conn
 ?>
