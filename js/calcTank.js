@@ -84,7 +84,7 @@ setTimeout(() => {
                                 subSubContainer.appendChild(sm);
                                 subSubContainer.appendChild(em);
 
-                                subContainer.appendChild(subContainer);
+                                subContainer.appendChild(subSubContainer);
                             }
                             subContainer.appendChild(totalDrivenP);
                             subContainer.appendChild(totalCostP);
