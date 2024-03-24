@@ -69,6 +69,7 @@ setTimeout(() => {
                             const totalCostP = document.createElement("p");
 
                             subContainer.classList.add("bg-dark", "p-2", "d-flex", "flex-column", "gap-3", "col-12", "rounded")
+                            tripsContainer.classList.add("d-flex", "flex-column", "gap-2")
                             userP.textContent = person.user;
                             totalDrivenP.textContent = "totaal gereden: " + person.total;
                             totalCostP.textContent = "Te betalen: €" + person.costForTank;
