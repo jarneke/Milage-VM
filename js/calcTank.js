@@ -67,7 +67,7 @@ setTimeout(() => {
                             const totalDrivenP = document.createElement("p");
                             const totalCostP = document.createElement("p");
 
-                            subContainer.classList.add("bg-dark", "")
+                            subContainer.classList.add("bg-dark")
                             userP.textContent = person.user;
                             totalDrivenP.textContent = "totaal gereden: " + person.total;
                             totalCostP.textContent = "Te betalen: " + person.costForTank;
