@@ -10,7 +10,7 @@ if ($result->num_rows > 0) {
     // Output data of each row
     while($row = $result->fetch_assoc()) {
         echo "<div class='tank'>";
-        echo "<p>Tank Date: " . $row["tankDate"] . "</p>";
+        echo "<p>Tank Date: " . $row["fillDate"] . "</p>";
         echo "<p>Cost: $" . $row["cost"] . "</p>";
         echo "</div>";
     }
