@@ -19,7 +19,7 @@ setTimeout(() => {
                         document.getElementById("calcTank").innerHTML = "";
 
                         console.log(tripsData);
-                        const totalDriven = 0;
+                        let totalDriven = 0;
                         for (const trip of tripsData) {
                             totalDriven += (trip.em - trip.sm);
                         }
