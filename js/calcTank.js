@@ -67,6 +67,7 @@ setTimeout(() => {
                             const tripsContainer = document.createElement("div");
                             const totalDrivenP = document.createElement("p");
                             const totalCostP = document.createElement("p");
+                            const tripsButton = document.createElement("button");
 
                             subContainer.classList.add("bg-dark", "p-2", "d-flex", "flex-column", "gap-3", "col-12", "rounded")
                             tripsContainer.classList.add("d-flex", "flex-column", "gap-2")
@@ -74,6 +75,27 @@ setTimeout(() => {
                             totalDrivenP.textContent = "totaal gereden: " + person.total;
                             totalCostP.textContent = "Te betalen: €" + person.costForTank;
 
+                            tripsButton.textContent = "Show trips"
+                            tripsButton.classList.add("btn", "btn-dark")
+                            tripsButton.setAttribute("data-trips", false)
+                            tripsButton.addEventListener("click", e => {
+                                e.preventDefault();
+                                if (tripsButton.getAttribute("data-trips")) {
+                                    for (const child of tripsContainer.childNodes) {
+                                        child.style.display = "block"
+                                    }
+                                    tripsButton.style.display = "block"
+                                    tripsButton.setAttribute("data-trips", true)
+                                    tripsButton.textContent = "Hide trips"
+                                } else {
+                                    for (const child of tripsContainer.childNodes) {
+                                        child.style.display = "none"
+                                    }
+                                    tripsButton.style.display = "block"
+                                    tripsButton.setAttribute("data-trips", false)
+                                    tripsButton.textContent = "Show trips"
+                                }
+                            })
                             subContainer.appendChild(userP);
                             subContainer.appendChild(tripsContainer);
                             for (const trip of person.trips) {
