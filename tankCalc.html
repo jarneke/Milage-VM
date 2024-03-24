@@ -10,7 +10,7 @@
   <script src="js/calcTank.js" defer></script>
 </head>
 
-<body class="bg-white" style="min-height: 100vh;">
+<body class="bg-white" style="min-height: 100vh; display: flex; flex-direction: column; justify-content: space-between;">
   <header class="bg-dark text-white">
     <nav class="container py-3 d-flex justify-content-start gap-3">
       <a href="index.html" class="text-white">HOME</a>
@@ -25,7 +25,7 @@
     <div id="calcTank" class="container"></div>
 
   </main>
-  <footer></footer>
+  <footer class="bg-dark p-3" style="padding: 20px; position: sticky; bottom: 0; width: 100%;"></footer>
   <script>
     // Function to fetch tank data using AJAX
     function getTankData() {
