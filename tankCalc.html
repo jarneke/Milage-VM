@@ -2,22 +2,29 @@
 <html lang="en">
 
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Tank Information</title>
-  <style>
-    .tank {
-      border: 1px solid #ccc;
-      padding: 10px;
-      margin-bottom: 10px;
-    }
-  </style>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Document</title>
+  <link rel="stylesheet" href="css/reset.css" />
+  <link rel="stylesheet" href="css/style.css" />
+  <script src="js/calcTank.js" defer></script>
 </head>
 
 <body>
-  <h1>Tank Information</h1>
-  <div id="tankData"></div>
-
+  <header>
+    <nav>
+      <a href="index.html">Home</a>
+      <a href="data.html">Data</a>
+      <a href="tankCalc.html">Calculate refills</a>
+    </nav>
+  </header>
+  <main>
+    <div class="table">
+      <div id="tanks"></div>
+    </div>
+    <div id="calculatedTank">Calculated data:</div>
+  </main>
+  <footer></footer>
   <script>
     // Function to fetch tank data using AJAX
     function getTankData() {
