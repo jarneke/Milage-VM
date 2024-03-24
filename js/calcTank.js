@@ -96,6 +96,7 @@ setTimeout(() => {
                                     tripsButton.textContent = "Show trips"
                                 }
                             })
+                            tripsContainer.appendChild(tripsButton)
                             subContainer.appendChild(userP);
                             subContainer.appendChild(tripsContainer);
                             for (const trip of person.trips) {
