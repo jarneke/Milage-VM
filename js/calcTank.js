@@ -6,7 +6,7 @@ setTimeout(() => {
         button.addEventListener('click', () => {
             const tankDiv = button.closest('.tank');
             if (tankDiv) {
-                const previosFillDate = document.querySelector(`.tank[data-id="${tankDiv.getAttribute("data-id") - 1}"]`);
+                const previosFillDate = document.querySelector(`.tank[data-id="${tankDiv.getAttribute("data-id") - 1}"]`).firstElementChild.textContent;
                 const firstElementTextContent = tankDiv.firstElementChild.textContent;
                 const clickedFillDate = firstElementTextContent.split(" ")[2];
                 console.log("clicked Date: " + clickedFillDate);
