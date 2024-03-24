@@ -91,7 +91,7 @@ setTimeout(() => {
                                     tripsButton.textContent = "Hide trips"
                                 } else {
                                     for (const child of tripsContainer.childNodes) {
-                                        child.style.display = "block"
+                                        child.style.display = "none"
                                     }
                                     tripsButton.style.display = "block"
                                     tripsButton.setAttribute("data-trips", true)
