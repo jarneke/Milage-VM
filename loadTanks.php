@@ -11,8 +11,8 @@ if ($result->num_rows > 0) {
     $i = 0;
     while($row = $result->fetch_assoc()) {
         echo "<div class='tank card col-12 col-md-5 col-lg-3 bg-secondary text-white' data-id='" . $i . "'>";
-        echo "<p>Tank Date: " . $row["fillDate"] . "</p>";
-        echo "<p>Cost: €" . $row["cost"] . "</p>";
+        echo '<p class="bg-secondary text-white">Tank Date: ' . $row["fillDate"] . '</p>';
+        echo '<p class="bg-secondary text-white">Cost: €' . $row["cost"] . '</p>';
         echo '<button type="button" class="CalculateTank">Calculate tank</button>';
         echo "</div>";
         $i++;
