@@ -13,7 +13,7 @@ if ($result->num_rows > 0) {
         echo "<div class='tank card col-12 col-md-5 col-lg-3 bg-secondary text-white' data-id='" . $i . "'>";
         echo '<p class="bg-secondary text-white">Tank Date: ' . $row["fillDate"] . '</p>';
         echo '<p class="bg-secondary text-white">Cost: €' . $row["cost"] . '</p>';
-        echo '<button type="button" class="CalculateTank">Calculate tank</button>';
+        echo '<button type="button" class="CalculateTank btn btn-dark">Calculate tank</button>';
         echo "</div>";
         $i++;
     }
