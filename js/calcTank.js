@@ -14,11 +14,8 @@ setTimeout(() => {
                         document.getElementById("calcTank").innerHTML = this.responseText;
                     }
                 };
-                xhttp.open("GET", "loadTripsBetween.php", true);
-                xhttp.send({
-                    curr: clickedFillDate,
-                    prev: previosFillDate
-                });
+                xhttp.open("GET", `loadTripsBetween.php?prev=${encodeURIComponent(previousFillDate)}&curr=${encodeURIComponent(clickedFillDate)}`, true);
+                xhttp.send();
             }
         });
     }
