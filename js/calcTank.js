@@ -67,7 +67,7 @@ setTimeout(() => {
                             const totalDrivenP = document.createElement("p");
                             const totalCostP = document.createElement("p");
 
-                            subContainer.classList.add("bg-dark", "p-2")
+                            subContainer.classList.add("bg-dark", "p-2", "d-flex", "flex-column")
                             userP.textContent = person.user;
                             totalDrivenP.textContent = "totaal gereden: " + person.total;
                             totalCostP.textContent = "Te betalen: " + person.costForTank;
@@ -80,6 +80,7 @@ setTimeout(() => {
                                 const sm = document.createElement("p");
                                 const em = document.createElement("p");
 
+                                subSubContainer.classList.add("bg-secondary")
                                 tripDate.textContent = "datum: " + trip.date;
                                 sm.textContent = "Start: " + trip.sm;
                                 em.textContent = "Eind: " + trip.em;
