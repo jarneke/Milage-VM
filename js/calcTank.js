@@ -80,6 +80,7 @@ setTimeout(() => {
                             tripsButton.setAttribute("data-trips", false)
                             tripsButton.addEventListener("click", e => {
                                 e.preventDefault();
+                                console.log(tripsButton.getAttribute("data-trips"));
                                 if (tripsButton.getAttribute("data-trips")) {
                                     for (const child of tripsContainer.childNodes) {
                                         child.style.display = "block"
