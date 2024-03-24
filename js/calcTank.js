@@ -1,4 +1,4 @@
-setTimeout = (() => {
+setTimeout(() => {
     const calculateButtons = document.getElementsByClassName('CalculateTank');
     console.log(calculateButtons);
     console.log("1");
