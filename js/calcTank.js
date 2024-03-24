@@ -7,7 +7,6 @@ setTimeout(() => {
                 const previousFillDate = document.querySelector(`.tank[data-id="${tankDiv.getAttribute("data-id") - 1}"]`).firstElementChild.textContent.split(" ")[2];
                 const clickedFillDate = tankDiv.firstElementChild.textContent.split(" ")[2];
                 const fillPrice = parseFloat(tankDiv.childNodes[1].textContent.split("€")[1]);
-                console.log(fillPrice);
                 let xhttp = new XMLHttpRequest();
                 xhttp.onreadystatechange = function () {
                     if (this.readyState == 4 && this.status == 200) {
@@ -15,13 +14,10 @@ setTimeout(() => {
                         const tripsData = JSON.parse(this.responseText);
                         // Clear existing content
                         document.getElementById("calcTank").innerHTML = "";
-
-                        console.log(tripsData);
                         let totalDriven = 0;
                         for (const trip of tripsData) {
                             totalDriven += (trip.em - trip.sm);
                         }
-                        console.log(totalDriven);
                         let drivenPerPerson = []
                         for (const trip of tripsData) {
                             if (drivenPerPerson.find(e => e.user == trip.user) === undefined) {
@@ -48,7 +44,6 @@ setTimeout(() => {
                         for (const person of drivenPerPerson) {
                             person.costForTank = Math.round((fillPrice / totalDriven) * person.total * 100) / 100
                         }
-                        console.log(drivenPerPerson);
                         const container = document.getElementById("calcTank");
                         const fillDateP = document.createElement("p");
                         const fillPriceP = document.createElement("p");
@@ -80,14 +75,12 @@ setTimeout(() => {
                             tripsButton.setAttribute("data-trips", true)
                             tripsButton.addEventListener("click", e => {
                                 e.preventDefault();
-                                console.log(tripsButton.getAttribute("data-trips"));
                                 if (tripsButton.getAttribute("data-trips") == "true") {
                                     for (const child of tripsContainer.childNodes) {
                                         child.style.display = "block"
                                     }
                                     tripsButton.style.display = "block"
                                     tripsButton.setAttribute("data-trips", false)
-                                    console.log("Set to: " + tripsButton.getAttribute("data-trips"));
                                     tripsButton.textContent = "Hide trips"
                                 } else {
                                     for (const child of tripsContainer.childNodes) {
@@ -95,7 +88,6 @@ setTimeout(() => {
                                     }
                                     tripsButton.style.display = "block"
                                     tripsButton.setAttribute("data-trips", true)
-                                    console.log("Set to: " + tripsButton.getAttribute("data-trips"));
                                     tripsButton.textContent = "Show trips"
                                 }
                             })
