@@ -2,63 +2,39 @@
 <html lang="en">
 
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Document</title>
-  <link rel="stylesheet" href="css/reset.css" />
-  <link rel="stylesheet" href="css/style.css" />
-  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-  <script src="js/calcTank.js" defer></script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Tank Information</title>
+  <style>
+    .tank {
+      border: 1px solid #ccc;
+      padding: 10px;
+      margin-bottom: 10px;
+    }
+  </style>
 </head>
 
 <body>
-  <header>
-    <nav>
-      <a href="index.html">Home</a>
-      <a href="data.html">Data</a>
-      <a href="tankCalc.html">Calculate refills</a>
-    </nav>
-  </header>
-  <main>
-    <form id="tankForm">
-      <input type="submit" value="Load all tanks" />
-    </form>
-    <div class="table">
-      <div id="tanks"></div>
-    </div>
-    <div id="calculatedTank">Calculated data:</div>
-  </main>
-  <footer></footer>
+  <h1>Tank Information</h1>
+  <div id="tankData"></div>
+
   <script>
-    document.addEventListener("DOMContentLoaded", (e) => {
-      e.preventDefault();
-      // Create a new XMLHttpRequest object
-      var xhr = new XMLHttpRequest();
-
-      // Configure it: GET-request for the URL
-      xhr.open('GET', 'loadTanks.php');
-
-      // Set up a function that will be called when the request status changes
-      xhr.onreadystatechange = function () {
-        // When the request is completed successfully
-        if (xhr.readyState === XMLHttpRequest.DONE) {
-          // Check if the request was successful (status 200)
-          if (xhr.status === 200) {
-            // Parse the JSON response
-            var tanks = JSON.parse(xhr.responseText);
-            // Do something with the tanks data
-            console.log(tanks);
-          } else {
-            // Handle the error
-            console.error('Request failed with status:', xhr.status);
-          }
+    // Function to fetch tank data using AJAX
+    function getTankData() {
+      var xhttp = new XMLHttpRequest();
+      xhttp.onreadystatechange = function () {
+        if (this.readyState == 4 && this.status == 200) {
+          document.getElementById("tankData").innerHTML = this.responseText;
         }
       };
+      xhttp.open("GET", "get_tanks.php", true);
+      xhttp.send();
+    }
 
-      // Send the request
-      xhr.send();
-
-    });
+    // Call the function when the page loads
+    window.onload = function () {
+      getTankData();
+    };
   </script>
 </body>
 
