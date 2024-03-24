@@ -3,8 +3,8 @@
 include 'config.php';
 
 
-$prev = $_POST['prev'];
-$curr = $_POST['curr'];
+$prev = $_GET['prev'];
+$curr = $_GET['curr'];
 
 // Query to fetch all data from tanks table
 $sql = 'SELECT * FROM trips WHERE tripDate < "' . $curr . '" && tripDate > "' . $prev . '"';
