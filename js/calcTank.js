@@ -53,7 +53,7 @@ setTimeout(() => {
                         const fillDateP = document.createElement("p");
                         const fillPriceP = document.createElement("p");
 
-                        container.classList.add("d-flex", "flex-column", "bg-secondary", "text-white")
+                        container.classList.add("d-flex", "flex-column", "bg-secondary", "text-white", "gap-3")
                         fillDateP.textContent = "Tank date: " + clickedFillDate;
                         fillDateP.classList.add("display-5")
                         fillPriceP.textContent = "Fill price: €" + fillPrice;
@@ -67,7 +67,7 @@ setTimeout(() => {
                             const totalDrivenP = document.createElement("p");
                             const totalCostP = document.createElement("p");
 
-                            subContainer.classList.add("bg-dark")
+                            subContainer.classList.add("bg-dark", "p-2")
                             userP.textContent = person.user;
                             totalDrivenP.textContent = "totaal gereden: " + person.total;
                             totalCostP.textContent = "Te betalen: " + person.costForTank;
