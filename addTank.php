@@ -13,7 +13,7 @@ $stmt = $mysqli->prepare($sql);
 
 if ($stmt) {
     // Bind parameters
-    $stmt->bind_param("si", $fillDate, $cost);
+    $stmt->bind_param("sd", $fillDate, $cost);
 
     // Execute the statement
     if ($stmt->execute()) {
