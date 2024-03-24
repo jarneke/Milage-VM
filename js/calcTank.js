@@ -49,6 +49,49 @@ setTimeout(() => {
                             person.costForTank = Math.round((fillPrice / totalDriven) * person.total * 100) / 100
                         }
                         console.log(drivenPerPerson);
+                        const container = document.getElementById("calcTank");
+                        const fillDateP = document.createElement("p");
+                        const fillPriceP = document.createElement("p");
+
+                        fillDateP.textContent = "Tank date: " + clickedFillDate;
+                        fillPriceP.textContent = "Fill price: €" + fillPrice;
+
+                        container.appendChild(fillDateP);
+                        container.appendChild(fillPriceP);
+                        for (const person of drivenPerPerson) {
+                            const subContainer = document.createElement("div");
+                            const userP = document.createElement("p");
+                            const totalDrivenP = document.createElement("p");
+                            const totalCostP = document.createElement("p");
+
+                            userP.textContent = person.user;
+                            totalDrivenP.textContent = "totaal gereden: " + person.total;
+                            totalCostP.textContent = "Te betalen: " + person.costForTank;
+
+                            subContainer.appendChild(userP);
+
+                            for (const trip of person.trips) {
+                                const subSubContainer = document.createElement("div");
+                                const tripDate = document.createElement("p");
+                                const sm = document.createElement("p");
+                                const em = document.createElement("p");
+
+                                tripDate.textContent = "datum: " + trip.date;
+                                sm.textContent = "Start: " + trip.sm;
+                                em.textContent = "Eind: " + trip.em;
+
+                                subSubContainer.appendChild(tripDate);
+                                subSubContainer.appendChild(sm);
+                                subSubContainer.appendChild(em);
+
+                                subContainer.appendChild(subContainer);
+                            }
+                            subContainer.appendChild(totalDrivenP);
+                            subContainer.appendChild(totalCostP);
+
+                            container.appendChild(subContainer);
+                        }
+
                     }
                 };
                 // Send AJAX request to LoadTripsBetween.php
