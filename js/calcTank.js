@@ -45,6 +45,9 @@ setTimeout(() => {
                                 }
                             }
                         }
+                        for (const person of drivenPerPerson) {
+                            person.costForTank = Math.round((fillPrice / totalDriven) * person.total * 100) / 100
+                        }
                         console.log(drivenPerPerson);
                     }
                 };
