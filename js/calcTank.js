@@ -4,7 +4,7 @@ window.onload = () => {
         button.addEventListener('click', () => {
             const tankDiv = button.closest('.tank');
             if (tankDiv) {
-
+                let previosFillDate = document.querySelector(`.tank[data-id="${tankDiv.getAttribute("data-id") - 1}"]`);
                 const firstElementTextContent = tankDiv.firstElementChild.textContent;
                 const clickedFillDate = firstElementTextContent.split(" ")[2];
                 console.log("clicked Date: " + clickedFillDate);
