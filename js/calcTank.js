@@ -13,5 +13,6 @@ setTimeout(() => {
                 console.log(clickedFillDate);
             }
         });
+        i++;
     }
 }, 1000);
