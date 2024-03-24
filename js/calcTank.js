@@ -6,7 +6,7 @@ setTimeout(() => {
             if (tankDiv) {
                 const previousFillDate = document.querySelector(`.tank[data-id="${tankDiv.getAttribute("data-id") - 1}"]`).firstElementChild.textContent.split(" ")[2];
                 const clickedFillDate = tankDiv.firstElementChild.textContent.split(" ")[2];
-                const clickedFillPrice = tankDiv.childNodes[1].textContent;
+                const clickedFillPrice = tankDiv.childNodes[1].textContent.split(" ")[1];
                 console.log(clickedFillPrice);
                 console.log("clicked Date: " + clickedFillDate);
                 console.log("previous Date: " + previousFillDate);
