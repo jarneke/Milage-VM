@@ -12,7 +12,7 @@ if ($result->num_rows > 0) {
         echo "<div class='tank'>";
         echo "<p>Tank Date: " . $row["fillDate"] . "</p>";
         echo "<p>Cost: $" . $row["cost"] . "</p>";
-        echo '<button type="button">Calculate tank</button>'
+        echo '<button type="button">Calculate tank</button>';
         echo "</div>";
     }
 } else {
