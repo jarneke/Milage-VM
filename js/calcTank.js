@@ -53,11 +53,11 @@ setTimeout(() => {
                         const fillDateP = document.createElement("p");
                         const fillPriceP = document.createElement("p");
 
-                        container.classList.add("d-flex", "flex-column", "bg-secondary", "text-white", "gap-3")
+                        container.classList.add("d-flex", "flex-wrap", "bg-secondary", "text-white", "gap-3")
                         fillDateP.textContent = "Tank date: " + clickedFillDate;
-                        fillDateP.classList.add("display-5")
+                        fillDateP.classList.add("display-5", "col-12")
                         fillPriceP.textContent = "Fill price: €" + fillPrice;
-                        fillPriceP.classList.add("display-5")
+                        fillPriceP.classList.add("display-5", "col-12")
 
                         container.appendChild(fillDateP);
                         container.appendChild(fillPriceP);
