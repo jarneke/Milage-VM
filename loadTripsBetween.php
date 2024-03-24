@@ -7,7 +7,7 @@ $prev = $_POST['previous'];
 $curr = $_POST['current'];
 
 // Query to fetch all data from tanks table
-$sql = 'SELECT * FROM trips WHERE tripDate < "' . $curr . '" && tripDate > "' . $prev . '"';
+$sql = 'SELECT * FROM trips WHERE tripDate < "2024-03-25T17:16" && tripDate > "2024-03-24T16:50"';
 $result = $mysqli->query($sql); // Use $mysqli instead of $conn
 
 if ($result->num_rows > 0) {
