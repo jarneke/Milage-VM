@@ -53,7 +53,7 @@ setTimeout(() => {
                         const fillDateP = document.createElement("p");
                         const fillPriceP = document.createElement("p");
 
-                        container.classList.add("d-flex", "flex-wrap", "bg-secondary", "text-white", "gap-3")
+                        container.classList.add("d-flex", "flex-wrap", "bg-secondary", "text-white", "gap-3", "rounded")
                         fillDateP.textContent = "Tank date: " + clickedFillDate;
                         fillDateP.classList.add("display-5", "col-12")
                         fillPriceP.textContent = "Fill price: €" + fillPrice;
@@ -67,7 +67,7 @@ setTimeout(() => {
                             const totalDrivenP = document.createElement("p");
                             const totalCostP = document.createElement("p");
 
-                            subContainer.classList.add("bg-dark", "p-2", "d-flex", "flex-column", "col-12")
+                            subContainer.classList.add("bg-dark", "p-2", "d-flex", "flex-column", "col-12", "rounded")
                             userP.textContent = person.user;
                             totalDrivenP.textContent = "totaal gereden: " + person.total;
                             totalCostP.textContent = "Te betalen: " + person.costForTank;
@@ -80,7 +80,7 @@ setTimeout(() => {
                                 const sm = document.createElement("p");
                                 const em = document.createElement("p");
 
-                                subSubContainer.classList.add("bg-secondary", "p-2")
+                                subSubContainer.classList.add("bg-secondary", "p-2", "rounded")
                                 tripDate.textContent = "datum: " + trip.date;
                                 sm.textContent = "Start: " + trip.sm;
                                 em.textContent = "Eind: " + trip.em;
