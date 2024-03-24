@@ -27,38 +27,21 @@
   <footer></footer>
   <script>
     // Function to fetch tank data using AJAX
-
-    document.addEventListener('DOMContentLoaded', () => {
-      const calculateButtons = document.querySelectorAll('.CalculateTank');
-      let i = 0;
-      calculateButtons.forEach(button => {
-        console.log(i);
-        i++;
-        button.addEventListener('click', () => {
-          const tankDiv = button.closest('.tank');
-          if (tankDiv) {
-            const firstElementTextContent = tankDiv.firstElementChild.textContent;
-            console.log(firstElementTextContent);
-          }
-        });
-      });
-
-      function getTankData() {
-        var xhttp = new XMLHttpRequest();
-        xhttp.onreadystatechange = function () {
-          if (this.readyState == 4 && this.status == 200) {
-            document.getElementById("tanks").innerHTML = this.responseText;
-          }
-        };
-        xhttp.open("GET", "loadTanks.php", true);
-        xhttp.send();
-      }
-
-      // Call the function when the page loads
-      window.onload = function () {
-        getTankData();
+    function getTankData() {
+      var xhttp = new XMLHttpRequest();
+      xhttp.onreadystatechange = function () {
+        if (this.readyState == 4 && this.status == 200) {
+          document.getElementById("tanks").innerHTML = this.responseText;
+        }
       };
-    });
+      xhttp.open("GET", "loadTanks.php", true);
+      xhttp.send();
+    }
+
+    // Call the function when the page loads
+    window.onload = function () {
+      getTankData();
+    };
   </script>
 </body>
 
