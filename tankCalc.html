@@ -30,8 +30,10 @@
 
     document.addEventListener('DOMContentLoaded', () => {
       const calculateButtons = document.querySelectorAll('.CalculateTank');
-
+      let i = 0;
       calculateButtons.forEach(button => {
+        console.log(i);
+        i++;
         button.addEventListener('click', () => {
           const tankDiv = button.closest('.tank');
           if (tankDiv) {
