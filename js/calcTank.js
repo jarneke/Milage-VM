@@ -12,6 +12,7 @@ setTimeout(() => {
                     if (this.readyState == 4 && this.status == 200) {
                         // Parse JSON response
                         const tripsData = JSON.parse(this.responseText);
+                        console.log(tripsData);
                         // Clear existing content
                         document.getElementById("calcTank").innerHTML = "";
                         let totalDriven = 0;
