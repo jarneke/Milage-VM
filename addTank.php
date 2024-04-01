@@ -6,9 +6,6 @@ $payedBy = $_POST['payedBy'];
 $fillDate = $_POST['fillDate'];
 $cost = $_POST['cost'];
 
-echo $payedBy;
-echo $fillDate;
-echo $cost;
 // Prepare the SQL statement with placeholders
 $sql = "INSERT INTO tanks (fillDate, cost, payedBy) VALUES (?, ?, ?)";
 
