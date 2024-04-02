@@ -53,7 +53,7 @@
 
         const successOrError = document.getElementById("SuccessOrError");
         successOrError.textContent = "Successfully add the trip"
-        successOrError.classList.add("text-center", "bg-success", "border", "border-success")
+        successOrError.classList.add("text-center", "bg-success", "btn", "btn-success")
         document.getElementById('tripForm').addEventListener('submit', function (event) {
             event.preventDefault(); // Prevent form submission
             submitTrip(); // Call the function to handle form submission
