@@ -16,7 +16,7 @@ if ($result->num_rows > 0) {
         $data[] = $row;
     }
 } else {
-    echo json_encode(array("status" => "error", "message" => "No results found"));
+    echo json_encode(array("status" => "error", "message" => "No results found", "SQL" => $sql));
     exit(); // Exit if no results found
 }
 
