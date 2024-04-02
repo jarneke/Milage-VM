@@ -3,6 +3,7 @@ setTimeout(() => {
     for (const button of calculateButtons) {
         button.addEventListener('click', () => {
             const tankDiv = button.closest('.tank');
+            console.log(tankDiv);
             if (tankDiv) {
                 const previousFillDate = document.querySelector(`.tank[data-id="${tankDiv.getAttribute("data-id") - 1}"]`).childNodes[1].textContent.split(" ")[2];
                 console.log(previousFillDate);
