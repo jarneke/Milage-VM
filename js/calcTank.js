@@ -4,8 +4,8 @@ setTimeout(() => {
         button.addEventListener('click', () => {
             const tankDiv = button.closest('.tank');
             if (tankDiv) {
-                const previousFillDate = document.querySelector(`.tank[data-id="${tankDiv.getAttribute("data-id") - 1}"]`).firstElementChild.textContent.split(" ")[2];
-                const clickedFillDate = tankDiv.firstElementChild.textContent.split(" ")[2];
+                const previousFillDate = document.querySelector(`.tank[data-id="${tankDiv.getAttribute("data-id") - 1}"]`).children[1].textContent.split(" ")[2];
+                const clickedFillDate = tankDiv.children[1].textContent.split(" ")[2];
                 const fillPrice = parseFloat(tankDiv.childNodes[1].textContent.split("€")[1]);
                 let xhttp = new XMLHttpRequest();
                 xhttp.onreadystatechange = function () {
