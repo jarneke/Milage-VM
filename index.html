@@ -32,7 +32,7 @@
                 <label for="em" class="form-label">Eind km</label>
                 <input type="number" name="em" id="em" required class="form-control" />
                 <input type="submit" value="submit trip" class="btn btn-dark mt-3" />
-                <div id="SuccessOrError"></div>
+                <div id="SuccessOrErrorTrip"></div>
             </fieldset>
         </form>
         <form id="tankForm" class="p-4 form-control bg-secondary text-white">
@@ -45,11 +45,15 @@
                 <label for="cost" class="form-label">Price of refill: </label>
                 <input type="number" name="cost" id="cost" required class="form-control" step="any" />
                 <input type="submit" value="submit tank" class="btn btn-dark mt-3" />
+                <div id="SuccessOrErrorTank"></div>
             </fieldset>
         </form>
     </main>
     <footer class="bg-dark p-3" style="padding: 20px; position: sticky; bottom: 0; width: 100%;"></footer>
     <script>
+        // show last trip
+        const lastTrip = document.getElementById("lastTrip")
+
         document.getElementById('tripForm').addEventListener('submit', function (event) {
             event.preventDefault(); // Prevent form submission
             submitTrip(); // Call the function to handle form submission
@@ -62,7 +66,7 @@
             xhttp.onreadystatechange = function () {
                 if (this.readyState == 4 && this.status == 200) {
                     console.log(this.responseText); // Log the response
-                    const successOrError = document.getElementById("SuccessOrError");
+                    const successOrError = document.getElementById("SuccessOrErrorTrip");
                     successOrError.textContent = this.responseText
                     if (this.responseText.includes("success")) {
                         successOrError.classList.add("text-center", "btn", "btn-success", "mt-3")
@@ -94,6 +98,18 @@
             xhttp.onreadystatechange = function () {
                 if (this.readyState == 4 && this.status == 200) {
                     console.log(this.responseText); // Log the response
+                    console.log(this.responseText); // Log the response
+                    const successOrError = document.getElementById("SuccessOrErrorTank");
+                    successOrError.textContent = this.responseText
+                    if (this.responseText.includes("success")) {
+                        successOrError.classList.add("text-center", "btn", "btn-success", "mt-3")
+                    } else {
+                        successOrError.classList.add("text-center", "btn", "btn-danger", "mt-3")
+                    }
+                    setTimeout(() => {
+                        successOrError.innerHTML = "";
+                        successOrError.classList.remove("text-center", "btn", "btn-success", "btn-danger", "mt-3")
+                    }, 5000);
                 }
             };
 
