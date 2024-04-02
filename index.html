@@ -50,10 +50,6 @@
     </main>
     <footer class="bg-dark p-3" style="padding: 20px; position: sticky; bottom: 0; width: 100%;"></footer>
     <script>
-
-        const successOrError = document.getElementById("SuccessOrError");
-        successOrError.textContent = "Successfully add the trip"
-        successOrError.classList.add("text-center", "bg-success", "btn", "btn-success")
         document.getElementById('tripForm').addEventListener('submit', function (event) {
             event.preventDefault(); // Prevent form submission
             submitTrip(); // Call the function to handle form submission
@@ -66,7 +62,13 @@
             xhttp.onreadystatechange = function () {
                 if (this.readyState == 4 && this.status == 200) {
                     console.log(this.responseText); // Log the response
-
+                    const successOrError = document.getElementById("SuccessOrError");
+                    successOrError.textContent = this.responseText
+                    if (this.responseText.includes("success")) {
+                        successOrError.classList.add("text-center", "bg-success", "btn", "btn-success", "mt-3")
+                    } else {
+                        successOrError.classList.add("text-center", "bg-danger", "btn", "btn-success", "mt-3")
+                    }
                 }
             };
 
