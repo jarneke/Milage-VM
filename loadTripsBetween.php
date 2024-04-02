@@ -6,7 +6,7 @@ $prev = $_GET['prev'];
 $curr = $_GET['curr'];
 
 echo $prev;
-echo $curr;
+echo
 
 // Query to fetch all data from trips table
 $sql = 'SELECT * FROM trips WHERE tripDate < "' . $curr . '" && tripDate > "' . $prev . '"';
