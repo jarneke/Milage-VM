@@ -42,7 +42,7 @@
         }
       };
       const allTankDates = document.getElementsByClassName("tankDate")
-      const lastTankDate = allTankDates[allTankDates.length - 1].textContent
+      const lastTankDate = allTankDates[allTankDates.length - 1].textContent.split(": ")[1]
       xhttp.open("GET", `loadTripsBetween.php?prev=${encodeURIComponent(lastTankDate)}&curr=${encodeURIComponent("2030-12-30T00:01")}`, true);
       xhttp.send();
     }
