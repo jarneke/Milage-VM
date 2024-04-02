@@ -65,12 +65,13 @@
                     const successOrError = document.getElementById("SuccessOrError");
                     successOrError.textContent = this.responseText
                     if (this.responseText.includes("success")) {
-                        successOrError.classList.add("text-center", "bg-success", "btn", "btn-success", "mt-3")
+                        successOrError.classList.add("text-center", "btn", "btn-success", "mt-3")
                     } else {
-                        successOrError.classList.add("text-center", "bg-danger", "btn", "btn-success", "mt-3")
+                        successOrError.classList.add("text-center", "btn", "btn-danger", "mt-3")
                     }
                     setTimeout(() => {
                         successOrError.innerHTML = "";
+                        successOrError.classList.remove("text-center", "btn", "btn-success", "btn-danger", "mt-3")
                     }, 5000);
                 }
             };
