@@ -4,10 +4,6 @@ include 'config.php';
 
 $prev = $_GET['prev'];
 $curr = $_GET['curr'];
-
-echo $prev;
-echo $curr;
-
 // Query to fetch all data from trips table
 $sql = 'SELECT * FROM trips WHERE tripDate < "' . $curr . '" && tripDate > "' . $prev . '"';
 $result = $mysqli->query($sql); // Use $mysqli instead of $conn
