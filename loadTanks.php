@@ -12,7 +12,7 @@ if ($result->num_rows > 0) {
     while($row = $result->fetch_assoc()) {
         echo "<div class='tank card col-12 col-md-5 col-lg-3 bg-secondary' data-id='" . $i . "'>";
         echo '<p class="bg-secondary text-white">Payed by: ' . $row["payedBy"] . '</p>';
-        echo '<p class="bg-secondary text-white">Tank Date: ' . $row["fillDate"] . '</p>';
+        echo '<p class="bg-secondary text-white tankDate">Tank Date: ' . $row["fillDate"] . '</p>';
         echo '<p class="bg-secondary text-white">Cost: €' . $row["cost"] . '</p>';
         echo '<button type="button" class="btn btn-dark bg-dark text-white CalculateTank">Calculate tank</button>';
         echo "</div>";
