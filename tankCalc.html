@@ -43,7 +43,7 @@
 
       const allTankDates = document.getElementsByClassName("tankDate")
       const lastTankDate = allTankDates[allTankDates.length - 1].textContent
-      xhttp.open("GET", `loadTripsBetween.php?prev=${encodeURIComponent(lastTankDate)}&curr=${encodeURIComponent("9999-12-30T00:01")}`, true);
+      xhttp.open("GET", `loadTripsBetween.php?prev=${encodeURIComponent(lastTankDate)}&curr=${encodeURIComponent("2030-12-30T00:01")}`, true);
       xhttp.send();
     }
     // Function to fetch tank data using AJAX
