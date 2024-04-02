@@ -51,6 +51,9 @@
     <footer class="bg-dark p-3" style="padding: 20px; position: sticky; bottom: 0; width: 100%;"></footer>
     <script>
 
+        const successOrError = document.getElementById("SuccessOrError");
+        successOrError.textContent = "Successfully add the trip"
+        successOrError.classList.add("text-center", "bg-success", "border", "border-success")
         document.getElementById('tripForm').addEventListener('submit', function (event) {
             event.preventDefault(); // Prevent form submission
             submitTrip(); // Call the function to handle form submission
@@ -58,13 +61,11 @@
         });
 
         function submitTrip() {
-            const successOrError = document.getElementById("SuccessOrError");
 
             let xhttp = new XMLHttpRequest();
             xhttp.onreadystatechange = function () {
                 if (this.readyState == 4 && this.status == 200) {
                     console.log(this.responseText); // Log the response
-                    successOrError.textContent = "Successfully added the trip";
 
                 }
             };
