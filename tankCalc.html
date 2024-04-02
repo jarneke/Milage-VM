@@ -18,24 +18,49 @@
     </nav>
   </header>
   <main>
-    <div class="table container mt-3">
-      <div id="tanks" class=" d-flex flex-wrap justify-content-center gap-3"></div>
-      <div class="btn btn-dark col-12" onclick="loadTripsSinceLastTank()">Load trips since last tank</div>
-      <div id="tripsSinceTank" class="container d-flex flex-column"></div>
+    <div class="table container mt-3 gap-3">
+      <div id="tanks" class=" d-flex flex-wrap justify-content-center gap-3">
+
+      </div>
+    </div>
+    <div class="btn btn-dark col-12" onclick="loadTripsSinceLastTank()">Load trips since last tank</div>
+    <div id="tripsSinceTank" class="container d-flex flex-column gap-3 bg-dark text-white">
+
     </div>
     <div id="calculatedTank" class="container display-2">Calculated data:</div>
-    <div id="calcTank" class="container"></div>
+    <div id="calcTank" class="container">
+
+    </div>
 
   </main>
   <footer class="bg-dark p-3" style="padding: 20px; position: sticky; bottom: 0; width: 100%;"></footer>
   <script>
     function loadTripsSinceLastTank() {
+      const tripsSinceTank = document.getElementById("tripsSinceTank");
       var xhttp = new XMLHttpRequest();
       xhttp.onreadystatechange = function () {
         if (this.readyState == 4 && this.status == 200) {
           const trips = JSON.parse(this.responseText);
+          tripsSinceTank.innerHTML = "";
           for (const trip of trips) {
-            console.log(trip);
+            const container = document.createElement("div");
+            const name = document.createElement("p")
+            const date = document.createElement("p")
+            const sm = document.createElement("p")
+            const em = document.createElement("p")
+
+            container.classList.add("d-flex", "flex-column", "bg-secondary")
+            name.textContent = "user: " + trip.user
+            date.textContent = "date: " + trip.tripDate
+            sm.textContent = "start: " + trip.sm
+            em.textContent = "eind: " + trip.em
+
+            container.appendChild(name)
+            container.appendChild(date)
+            container.appendChild(sm)
+            container.appendChild(em)
+
+            tripsSinceTank.appendChild("container")
           }
         }
       };
