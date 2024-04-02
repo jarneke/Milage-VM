@@ -20,6 +20,10 @@
   <main>
     <div class="table container mt-3">
       <div id="tanks" class=" d-flex flex-wrap justify-content-center gap-3"></div>
+      <div>
+        <button class="btn btn-dark" onclick="loadTripsSinceLastTank()">Load trips since last tank</button>
+      </div>
+      <div id="tripsSinceTank" class="container d-flex flex-column"></div>
     </div>
     <div id="calculatedTank" class="container display-2">Calculated data:</div>
     <div id="calcTank" class="container"></div>
@@ -27,6 +31,18 @@
   </main>
   <footer class="bg-dark p-3" style="padding: 20px; position: sticky; bottom: 0; width: 100%;"></footer>
   <script>
+    function loadTripsSinceLastTank() {
+      var xhttp = new XMLHttpRequest();
+      xhttp.onreadystatechange = function () {
+        if (this.readyState == 4 && this.status == 200) {
+          const trips = JSON.parse(this.responseText);
+          console.log(trips);
+
+        }
+      };
+      xhttp.open("GET", `loadTripsBetween.php?prev=${encodeURIComponent(previousFillDate)}&curr=${encodeURIComponent("9999-12-30T00:01")}`, true);
+      xhttp.send();
+    }
     // Function to fetch tank data using AJAX
     function getTankData() {
       var xhttp = new XMLHttpRequest();
