@@ -69,6 +69,9 @@
                     } else {
                         successOrError.classList.add("text-center", "bg-danger", "btn", "btn-success", "mt-3")
                     }
+                    setTimeout(() => {
+                        successOrError.innerHTML = "";
+                    }, 5000);
                 }
             };
 
