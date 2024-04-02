@@ -11,7 +11,6 @@ setTimeout(() => {
                 xhttp.onreadystatechange = function () {
                     if (this.readyState == 4 && this.status == 200) {
                         // Parse JSON response
-                        console.log(this);
                         const tripsData = JSON.parse(this.responseText);
                         console.log(tripsData);
                         // Clear existing content
