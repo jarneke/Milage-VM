@@ -20,9 +20,7 @@
   <main>
     <div class="table container mt-3">
       <div id="tanks" class=" d-flex flex-wrap justify-content-center gap-3"></div>
-      <div>
-        <button class="btn btn-dark" onclick="loadTripsSinceLastTank()">Load trips since last tank</button>
-      </div>
+      <div class="btn btn-dark" onclick="loadTripsSinceLastTank()">Load trips since last tank</div>
       <div id="tripsSinceTank" class="container d-flex flex-column"></div>
     </div>
     <div id="calculatedTank" class="container display-2">Calculated data:</div>
@@ -36,9 +34,9 @@
       xhttp.onreadystatechange = function () {
         if (this.readyState == 4 && this.status == 200) {
           const trips = JSON.parse(this.responseText);
-          console.log("Trips Since Tank: ");
-          console.log(trips);
+          for (const trip of trips) {
 
+          }
         }
       };
       const allTankDates = document.getElementsByClassName("tankDate")
