@@ -69,7 +69,7 @@
 		<!-- End popup dialog box -->
 
 		<!-- Start event modal -->
-		<div class="modal fade" id="event_entry_modal" tabindex="-1" role="dialog" aria-labelledby="modalLabel" aria-hidden="true">
+		<div class="modal fade" id="event_delete_modal" tabindex="-1" role="dialog" aria-labelledby="modalLabel" aria-hidden="true">
 			<div class="modal-dialog modal-md" role="document">
 				<div class="modal-content">
 					<div class="modal-header bg-dark text-white">
@@ -149,7 +149,8 @@
 					eventRender: function (event, element, view) {
 						element.bind('click', function () {
 							// add modal to delete event
-
+							const myModal = new bootstrap.Modal(document.getElementById('event_delete_modal'));
+							myModal.show();
 						});
 					}
 				}); //end fullCalendar block	
