@@ -67,6 +67,48 @@
 			</div>
 		</div>
 		<!-- End popup dialog box -->
+
+		<!-- Start event modal -->
+		<div class="modal fade" id="event_entry_modal" tabindex="-1" role="dialog" aria-labelledby="modalLabel" aria-hidden="true">
+			<div class="modal-dialog modal-md" role="document">
+				<div class="modal-content">
+					<div class="modal-header bg-dark text-white">
+						<h5 class="modal-title" id="modalLabel">Trip Info</h5>
+						<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+					</div>
+					<div class="modal-body">
+						<div class="img-container">
+							<div class="row">
+								<div class="col-sm-12">
+									<div class="form-group">
+										<label for="event_name">Name</label>
+										<input type="text" name="event_name" id="event_name" class="form-control" placeholder="Name" disabled>
+									</div>
+								</div>
+							</div>
+							<div class="row">
+								<div class="col-sm-6">
+									<div class="form-group">
+										<label for="event_start_date">Trip start</label>
+										<input type="datetime" name="event_start_date" id="event_start_date" class="form-control onlydatepicker" placeholder="Trip start date" disabled>
+									</div>
+								</div>
+								<div class="col-sm-6">
+									<div class="form-group">
+										<label for="event_end_date">Trip end</label>
+										<input type="datetime" name="event_end_date" id="event_end_date" class="form-control" placeholder="Trip end date" disabled>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="modal-footer bg-dark text-white">
+						<button type="button" class="btn btn-danger" onclick="delete_event()">Delete Event</button>
+					</div>
+				</div>
+			</div>
+		</div>
+		<!-- End event modal -->
 	</main>
 </body>
 <script>
@@ -107,7 +149,7 @@
 					eventRender: function (event, element, view) {
 						element.bind('click', function () {
 							// add modal to delete event
-							// alert(event.event_id);
+
 						});
 					}
 				}); //end fullCalendar block	
