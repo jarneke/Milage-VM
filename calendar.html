@@ -100,7 +100,7 @@
 						</div>
 					</div>
 					<div class="modal-footer bg-dark text-white">
-						<button type="button" class="btn btn-danger" onclick="delete_event()">Delete Event</button>
+						<button type="button" class="btn btn-danger" id="deleteButton">Delete Event</button>
 					</div>
 				</div>
 			</div>
@@ -150,14 +150,17 @@
 							const name = document.getElementById('specific_event_name');
 							const start = document.getElementById('specific_event_start_date');
 							const end = document.getElementById('specific_event_end_date');
+							const deleteButton = document.getElementById("deleteButton")
 
-							console.log(event);
+							deleteButton.addEventListener("click", e => {
+								e.preventDefault();
+								delete_event(event.event_id);
+							})
 
 							name.value = event.title
 							const startDate = new Date(event.start);
 							const endDate = new Date(event.end);
 
-							// Format dates using toLocaleDateString
 							start.value = startDate.toLocaleDateString('nl-be', { weekday: "short", year: "numeric", month: "short", day: "numeric" });
 							end.value = endDate.toLocaleDateString('nl-be', { weekday: "short", year: "numeric", month: "short", day: "numeric" });
 
@@ -202,6 +205,27 @@
 			}
 		});
 		return false;
+	}
+
+	function delete_event(event_id) {
+		$.ajax({
+			url: 'delete_event.php',
+			type: 'POST',
+			dataType: 'json',
+			data: { event_id: event_id },
+			success: function (response) {
+				if (response.status == true) {
+					alert(response.msg);
+					location.reload();
+				} else {
+					alert(response.msg);
+				}
+			},
+			error: function (xhr, status) {
+				console.log('ajax error = ' + xhr.statusText);
+				alert('Error deleting event.');
+			}
+		});
 	}
 </script>
 
