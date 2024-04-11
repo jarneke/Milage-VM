@@ -155,9 +155,9 @@
 
 							console.log(event);
 
-							name.value = event.event_name
-							start.value = event.event_start_date
-							end.value = event.event_end_date
+							name.value = event.title
+							start.value = event.start
+							end.value = event.end
 
 							const myModal = new bootstrap.Modal(document.getElementById('event_delete_modal'));
 							myModal.show();
