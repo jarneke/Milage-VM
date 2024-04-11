@@ -156,8 +156,8 @@
 							console.log(event);
 
 							name.value = event.title
-							start.value = event.start
-							end.value = event.end
+							start.value = event.start.toLocaleDateString('nl-be', { weekday: "short", year: "numeric", month: "short", day: "numeric" })
+							end.value = event.end.toLocaleDateString('nl-be', { weekday: "short", year: "numeric", month: "short", day: "numeric" })
 
 							const myModal = new bootstrap.Modal(document.getElementById('event_delete_modal'));
 							myModal.show();
