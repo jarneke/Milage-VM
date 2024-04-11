@@ -192,7 +192,6 @@
 			success: function (response) {
 				$('#event_entry_modal').modal('hide');
 				if (response.status == true) {
-					alert(response.msg);
 					location.reload();
 				}
 				else {
@@ -215,7 +214,6 @@
 			data: { event_id: event_id },
 			success: function (response) {
 				if (response.status == true) {
-					alert(response.msg);
 					location.reload();
 				} else {
 					alert(response.msg);
