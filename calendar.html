@@ -48,13 +48,13 @@
 								<div class="col-sm-6">
 									<div class="form-group">
 										<label for="event_start_date">Trip start</label>
-										<input type="date" name="event_start_date" id="event_start_date" class="form-control onlydatepicker" placeholder="Trip start date">
+										<input type="datetime" name="event_start_date" id="event_start_date" class="form-control onlydatepicker" placeholder="Trip start date">
 									</div>
 								</div>
 								<div class="col-sm-6">
 									<div class="form-group">
 										<label for="event_end_date">Trip end</label>
-										<input type="date" name="event_end_date" id="event_end_date" class="form-control" placeholder="Trip end date">
+										<input type="datetime" name="event_end_date" id="event_end_date" class="form-control" placeholder="Trip end date">
 									</div>
 								</div>
 							</div>
@@ -68,7 +68,6 @@
 		</div>
 		<!-- End popup dialog box -->
 	</main>
-	<footer class="bg-dark p-3" style="padding: 20px; position: sticky; bottom: 0; width: 100%;"></footer>
 </body>
 <script>
 	$(document).ready(function () {
@@ -100,8 +99,6 @@
 					selectable: true,
 					selectHelper: true,
 					select: function (start, end) {
-						//alert(start);
-						//alert(end);
 						$('#event_start_date').val(moment(start).format('YYYY-MM-DD'));
 						$('#event_end_date').val(moment(end).format('YYYY-MM-DD'));
 						$('#event_entry_modal').modal('show');
@@ -109,6 +106,7 @@
 					events: events,
 					eventRender: function (event, element, view) {
 						element.bind('click', function () {
+							// add modal to delete event
 							alert(event.event_id);
 						});
 					}
