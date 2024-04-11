@@ -115,13 +115,13 @@
 	}); //end document.ready block
 
 	function display_events() {
-		var events = new Array();
+		let events = new Array();
 		$.ajax({
 			url: 'display_event.php',
 			dataType: 'json',
 			success: function (response) {
 
-				var result = response.data;
+				let result = response.data;
 				$.each(result, function (i, item) {
 					events.push({
 						event_id: result[i].event_id,
@@ -132,7 +132,7 @@
 						url: result[i].url
 					});
 				})
-				var calendar = $('#calendar').fullCalendar({
+				let calendar = $('#calendar').fullCalendar({
 					defaultView: 'month',
 					timeZone: 'local',
 					editable: true,
@@ -174,9 +174,9 @@
 	}
 
 	function save_event() {
-		var event_name = $("#event_name").val();
-		var event_start_date = $("#event_start_date").val();
-		var event_end_date = $("#event_end_date").val();
+		let event_name = $("#event_name").val();
+		let event_start_date = $("#event_start_date").val();
+		let event_end_date = $("#event_end_date").val();
 		if (event_name == "" || event_start_date == "" || event_end_date == "") {
 			alert("Please enter all required details.");
 			return false;
