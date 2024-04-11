@@ -156,8 +156,12 @@
 							console.log(event);
 
 							name.value = event.title
-							start.value = event.start.toLocaleDateString('nl-be', { weekday: "short", year: "numeric", month: "short", day: "numeric" })
-							end.value = event.end.toLocaleDateString('nl-be', { weekday: "short", year: "numeric", month: "short", day: "numeric" })
+							const startDate = new Date(event.start);
+							const endDate = new Date(event.end);
+
+							// Format dates using toLocaleDateString
+							start.value = startDate.toLocaleDateString('nl-be', { weekday: "short", year: "numeric", month: "short", day: "numeric" });
+							end.value = endDate.toLocaleDateString('nl-be', { weekday: "short", year: "numeric", month: "short", day: "numeric" });
 
 							const myModal = new bootstrap.Modal(document.getElementById('event_delete_modal'));
 							myModal.show();
