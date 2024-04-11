@@ -1,14 +1,13 @@
 <?php                
-include 'config.php'; 
-$display_query = "SELECT event_id,event_name,event_start_date,event_end_date FROM calendar_event_master";             
-$results = $mysqli->query($display_query);   
-
-$count = $mysqli->num_rows($results);  
+require 'database_connection.php'; 
+$display_query = "select event_id,event_name,event_start_date,event_end_date from calendar_event_master";             
+$results = mysqli_query($con,$display_query);   
+$count = mysqli_num_rows($results);  
 if($count>0) 
 {
 	$data_arr=array();
     $i=1;
-	while($data_row = $mysqli->fetch_array($results, MYSQLI_ASSOC))
+	while($data_row = mysqli_fetch_array($results, MYSQLI_ASSOC))
 	{	
 	$data_arr[$i]['event_id'] = $data_row['event_id'];
 	$data_arr[$i]['title'] = $data_row['event_name'];
