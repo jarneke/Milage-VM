@@ -139,6 +139,7 @@
 					selectable: true,
 					selectHelper: true,
 					select: function (start, end) {
+						console.log("select");
 						$('#event_start_date').val(moment(start).format('YYYY-MM-DD'));
 						$('#event_end_date').val(moment(end).format('YYYY-MM-DD'));
 						$('#event_entry_modal').modal('show');
@@ -169,6 +170,7 @@
 						});
 					},
 					dayClick: function (start, end) {
+						console.log("click");
 						$('#event_start_date').val(moment(start).format('YYYY-MM-DD'));
 						$('#event_end_date').val(moment(end).format('YYYY-MM-DD'));
 						$('#event_entry_modal').modal('show');
