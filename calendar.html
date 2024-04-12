@@ -135,7 +135,7 @@
 				let calendar = $('#calendar').fullCalendar({
 					defaultView: 'month',
 					timeZone: 'local',
-					editable: true,
+					editable: false,
 					selectable: true,
 					selectHelper: true,
 					select: function (start, end) {
@@ -167,6 +167,11 @@
 							const myModal = new bootstrap.Modal(document.getElementById('event_delete_modal'));
 							myModal.show();
 						});
+					},
+					dayClick: function (date, jsEvent, view) {
+						console.log(date);
+						console.log(jsEvent);
+						console.log(view);
 					}
 				}); //end fullCalendar block	
 			},//end success block
