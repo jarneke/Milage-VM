@@ -169,10 +169,10 @@
 							myModal.show();
 						});
 					},
-					dayClick: function (start, end) {
+					dayClick: function (start) {
 						console.log("click");
 						$('#event_start_date').val(moment(start).format('YYYY-MM-DD'));
-						$('#event_end_date').val(moment(end).format('YYYY-MM-DD'));
+						$('#event_end_date').val(moment(start).format('YYYY-MM-DD'));
 						$('#event_entry_modal').modal('show');
 					}
 				}); //end fullCalendar block	
